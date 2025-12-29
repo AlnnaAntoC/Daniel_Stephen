@@ -11,41 +11,42 @@ import "./Contact.css";
 const projectsData = [
   {
     title: "Internal Mark Assessment System",
-    image: "/project1.png",
+    image: `${process.env.PUBLIC_URL}/project1.png`,
     github: "https://github.com/dashboard",
     live: "https://orbitqa.com/",
   },
   {
     title: "Televizy- TV Show popularity analysis website",
-    image: "/project2.png",
+    image: `${process.env.PUBLIC_URL}/project2.png`,
     github: "https://github.com/dashboard",
     live: "https://orbitqa.com/",
   },
   {
     title: "CO PO Attainment calculator ",
-    image: "/project3.png",
+    image: `${process.env.PUBLIC_URL}/project3.png`,
     github: "https://github.com/dashboard",
     live: "https://orbitqa.com/",
   },
   {
     title: "Portfolio Website",
-    image: "/project4.png",
+    image: `${process.env.PUBLIC_URL}/project4.png`,
     github: "https://github.com/dashboard",
     live: "https://orbitqa.com/",
   },
   {
     title: "Website for Vendor Medical Trading W.L.L",
-    image: "/project5.png",
+    image: `${process.env.PUBLIC_URL}/project5.png`,
     github: "https://github.com/dashboard",
     live: "https://orbitqa.com/",
   },
   {
     title: "Web page for Orbit Telecommunications",
-    image: "/project6.png",
+    image: `${process.env.PUBLIC_URL}/project6.png`,
     github: "https://github.com/dashboard",
     live: "https://orbitqa.com/",
   },
 ];
+
 const Home = () => {
   /* ================= STATE & REFS ================= */
   const countersRef = useRef([]);
@@ -81,7 +82,9 @@ const Home = () => {
       {/* ================= NAVBAR ================= */}
       <nav className="navbar">
         <div className="logo">
-          <img src="/logo.png" alt="Logo" className="logo-img" />
+         
+          <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="Logo" className="logo-img" />
+          
         </div>
 
         <ul className="nav-links">
@@ -106,12 +109,13 @@ const Home = () => {
 
           <div className="hero-buttons">
             <a href="#contact" className="btn contact-btn">Get in Touch</a>
-            <a href="/cv.pdf" download className="btn cv-btn">Download CV</a>
+            <a href={`${process.env.PUBLIC_URL}/cv.pdf`} download className="btn cv-btn">Download CV</a>
+
           </div>
         </div>
 
         <div className="hero-right">
-          <img src="/pro.png" alt="Profile" className="profile-pic" />
+          <img src={`${process.env.PUBLIC_URL}/pro.png`} alt="Profile" className="profile-pic" />
         </div>
       </section>
 
@@ -155,7 +159,7 @@ const Home = () => {
         <div className="about-container">
 
           <div className="about-image">
-            <img src="/abt.png" alt="Workspace" />
+            <img src={`${process.env.PUBLIC_URL}/abt.png`} alt="Workspace" />
           </div>
 
           <div className="about-content">
@@ -291,19 +295,19 @@ const Home = () => {
   <div className="contact-form-container">
     <form
       onSubmit={(e) => {
-        e.preventDefault();
-        const form = e.target;
-        const name = form.name.value;
-        const subject = form.subject.value;
-        const message = form.message.value;
-        const whatsappNumber = "+974 3077 3196"; // Replace with your number
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=Name: ${encodeURIComponent(
-          name
-        )}%0ASubject: ${encodeURIComponent(subject)}%0AMessage: ${encodeURIComponent(
-          message
-        )}`;
-        window.open(whatsappURL, "_blank");
-      }}
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const subject = form.subject.value;
+    const message = form.message.value;
+    const whatsappNumber = "97430773196"; // Qatar number without '+'
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      `Name: ${name}\nSubject: ${subject}\nMessage: ${message}`
+    )}`;
+
+    window.open(whatsappURL, "_blank");
+  }}
     >
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="text" name="mail" placeholder="Mail" required />

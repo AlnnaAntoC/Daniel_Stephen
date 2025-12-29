@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="alnnaantoc">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
