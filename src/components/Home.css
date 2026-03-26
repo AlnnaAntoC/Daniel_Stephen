@@ -500,12 +500,12 @@ section {
   }
 
   .hero-bg {
-    height: 300px;
+    height: 220px;
   }
 
   .profile-img {
     width: 220px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 
   .hero-right h1 {
