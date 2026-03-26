@@ -1,329 +1,396 @@
-// src/components/Home.jsx
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useState } from "react";
 import "./Home.css";
-import "./Stats.css";
-import "./About.css";
-import "./Projects.css";
-import "./Contact.css";
+import { motion } from "framer-motion";
 
-
-const projectsData = [
-  {
-    title: "Internal Mark Assessment System",
-    image: `${process.env.PUBLIC_URL}/project1.png`,
-    github: "https://github.com/dashboard",
-    live: "https://orbitqa.com/",
-  },
-  {
-    title: "Televizy- TV Show popularity analysis website",
-    image: `${process.env.PUBLIC_URL}/project2.png`,
-    github: "https://github.com/dashboard",
-    live: "https://orbitqa.com/",
-  },
-  {
-    title: "CO PO Attainment calculator ",
-    image: `${process.env.PUBLIC_URL}/project3.png`,
-    github: "https://github.com/dashboard",
-    live: "https://orbitqa.com/",
-  },
-  {
-    title: "Portfolio Website",
-    image: `${process.env.PUBLIC_URL}/project4.png`,
-    github: "https://github.com/dashboard",
-    live: "https://orbitqa.com/",
-  },
-  {
-    title: "Website for Vendor Medical Trading W.L.L",
-    image: `${process.env.PUBLIC_URL}/project5.png`,
-    github: "https://github.com/dashboard",
-    live: "https://orbitqa.com/",
-  },
-  {
-    title: "Web page for Orbit Telecommunications",
-    image: `${process.env.PUBLIC_URL}/project6.png`,
-    github: "https://github.com/dashboard",
-    live: "https://orbitqa.com/",
-  },
-];
+import { Menu, X } from "lucide-react";
+import profileImg from "../assets/profile.png";
+import logo from "../assets/logo.png";
+import P1 from "../assets/pro1.png";
+import P2 from "../assets/pro2.png";
+import P3 from "../assets/pro3.png";
+import P4 from "../assets/pro4.png";
+import P5 from "../assets/pro5.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Home = () => {
-  /* ================= STATE & REFS ================= */
-  const countersRef = useRef([]);
-  const [activeTab, setActiveTab] = useState("skills");
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  /* ================= EFFECTS ================= */
-  useEffect(() => {
-    countersRef.current.forEach((counter) => {
-      if (!counter) return;
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
 
-      const target = Number(counter.dataset.target);
-      let current = 0;
-      const increment = target / 120;
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
-      const animate = () => {
-        current += increment;
-        if (current < target) {
-          counter.innerText = Math.ceil(current);
-          requestAnimationFrame(animate);
-        } else {
-          counter.innerText = target;
-        }
-      };
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/cv.pdf'; // path to your resume in public folder
+    link.download = 'Daniel_Resume.pdf'; // filename for download
+    link.click();
+  };
 
-      animate();
-    });
-  }, []);
+  const caseStudies = [
+  {
+    id: 1,
+    name: "dadicooks.ae",
+    link: "https://www.instagram.com/dadi_cooks.ae?igsh=OWducGRmeDhiZHVq",
+    image: P1,
+    type: "Catering Brand / Personal Brand",
+    objective:
+      "Build brand presence for Maroon Door and generate inbound orders",
+    execution: [
+      "Story-driven food content",
+      "Entertainment + value + emotion",
+      "Strong central character",
+      "Consistent storytelling",
+    ],
+    results: [
+      "4.5M+ views (first video)",
+      "Multiple viral videos",
+      "Inbound catering orders",
+    ],
+  },
+  {
+    id: 2,
+    name: "wallstreetjr_1",
+    link: "https://www.instagram.com/wallstreetjr_1?igsh=bGR6MTZhcGpqdTJx",
+    image: P2,
+    type: "Investment Educator",
+    objective:
+      "Build distribution and visibility for investment services brand",
+    execution: [
+      "High-retention content",
+      "Fast-paced storytelling",
+      "Engagement-focused",
+      "Repeatable framework",
+    ],
+    results: [
+      "0 → 11K followers",
+      "10+ videos >100K views",
+      "Inbound DMs for courses",
+    ],
+  },
+  {
+    id: 3,
+    name: "sunilkumar_assethomes",
+    link: "https://www.instagram.com/sunilkumar_assethomes?igsh=NmJ3NWRwZGE0N2Nq",
+    image: P3,
+    type: "Real Estate Founder",
+    objective: "Build founder authority",
+    execution: [
+      "Story-driven founder content",
+      "Conversational format",
+      "Freestyle delivery",
+      "Consistent production",
+    ],
+    results: [
+      "100+ videos",
+      "5–10 videos crossed 1M+",
+      "Increased authority",
+    ],
+  },
+  {
+    id: 4,
+    name: "Honest Bowl",
+    link: "https://www.instagram.com/honest.bowl?igsh=dmJkc2JzN2pkeTBm",
+    image: P4,
+    type: "Food Brand",
+    objective: "Build relatable identity",
+    execution: [
+      "Street interviews",
+      "Emotional storytelling",
+      "Human experiences",
+      "Targeted audience",
+    ],
+    results: [
+      "10+ videos with 1M+ views",
+      "70K followers",
+      "High engagement",
+    ],
+  },
+  {
+    id: 5,
+    name: "praveen.prowim",
+    link: "https://www.instagram.com/praveen.prowin?igsh=MW14a29sbWJhaGY0bA==",
+    image: P5,
+    type: "Real Estate Brand",
+    objective: "Attract investors & hiring leads",
+    execution: [
+      "High-energy content",
+      "Aggressive sales format",
+      "Fast-paced editing",
+    ],
+    results: [
+      "0 → 10K followers",
+      "Consistent reach",
+      "Investment enquiries",
+    ],
+  },
+];
+const [active, setActive] = useState(null);
 
-  /* ================= RENDER ================= */
+
+
   return (
-    <div className="home-container">
+    <div>
 
-      {/* ================= NAVBAR ================= */}
+      {/* NAVBAR */}
       <nav className="navbar">
+        
         <div className="logo">
-         
-          <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="Logo" className="logo-img" />
-          
+          <img src={logo} alt="Logo" />
         </div>
 
-        <ul className="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </div>
+
+        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+          <li onClick={() => scrollToSection("hero")}>Home</li>
+          <li onClick={() => scrollToSection("about")}>About</li>
+          <li onClick={() => scrollToSection("projects")}>Projects</li>
+          <li onClick={() => scrollToSection("contact")}>Contact</li>
         </ul>
       </nav>
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="hero">
-        <div className="hero-left">
-          <div className="hero-text">
-            <h1 className="animated-gradient">Hi, I'm Alnna</h1>
-            <h1 className="typing-text">Web Developer</h1>
+      {/* HERO */}
+      <section id="hero" className="hero">
+        <div className="hero-bg"></div>
+
+        <div className="hero-content">
+          <motion.div
+            className="hero-left"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            
+            <img src={profileImg} alt="profile" className="profile-img" />
+          </motion.div>
+
+          <motion.div
+            className="hero-right"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            <h1><br />DANIEL<br />STEPHEN</h1>
+            <p className="designation">Organic Social Media Strategist</p>
+
+            <div className="hero-buttons">
+              
+              <div>
+      {/* --- 2. Place your button inside the JSX where you want it to render --- */}
+      <button className="btn" onClick={downloadResume}>
+              Download Resume
+            </button>
           </div>
-
-          <p className="hero-para">
-            I build beautiful and interactive websites.<br />
-            Specializing in full-stack web development.
-          </p>
-
-          <div className="hero-buttons">
-            <a href="#contact" className="btn contact-btn">Get in Touch</a>
-            <a href={`${process.env.PUBLIC_URL}/cv.pdf`} download className="btn cv-btn">Download CV</a>
-
-          </div>
-        </div>
-
-        <div className="hero-right">
-          <img src={`${process.env.PUBLIC_URL}/pro.png`} alt="Profile" className="profile-pic" />
+              <button className="btn-outline" onClick={() => scrollToSection("contact")}>
+                Contact Me
+              </button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ================= STATS SECTION ================= */}
-      <section className="stats-section">
-        <div className="stats-container">
+      {/* ABOUT */}
+      <section id="about" className="about">
+  
 
-          <div className="stat-item">
-            <h3>
-              <span ref={(el) => (countersRef.current[0] = el)} data-target="15">0</span>+
-            </h3>
-            <p>Projects</p>
-          </div>
+  <motion.p
+    className="about-subtitle"
+    initial="hidden"
+    whileInView="visible"
+    variants={fadeUp}
+  >
+    I help Founders and Brands grow attention, authority, and leads using structured short-form content.
+  </motion.p>
 
-          <div className="stat-item">
-            <h3>
-              ~<span ref={(el) => (countersRef.current[1] = el)} data-target="5">0</span>
-            </h3>
-            <p>Published</p>
-          </div>
+  <div className="about-grid">
+    {[
+      {
+        title: "What I Do",
+        desc: "I create strategically planned short-form videos, backed by research, that grab attention and retention on social media.",
+        points: [
+          
+        ],
+      },
+      {
+        title: "Who I Help",
+        desc: "I help founders and buisiness brands get attention, build authority, and increase brand visibility on social media through customized content strategies based on their goals.",
+        points: [
+          
+        ],
+      },
+      {
+        title: "How I Work",
+        desc: "",
+        points: [
+          "Research & strategy developement",
+          "Concept & Framework creation",
+          "Pre-production planning",
+          "Shoot direction with videographer",
+          "Editing direction with editor",
+          "Content publishing",
+          "Performance analysis and improvement",
+        ],
+      },
+    ].map((card, i) => (
+      <motion.div
+        className="about-card"
+        key={i}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ delay: i * 0.2 }}
+        whileHover={{ y: -10, scale: 1.03 }}
+      >
+        <h3>{card.title}</h3>
+        <p>{card.desc}</p>
 
-          <div className="stat-item">
-            <h3>
-              <span ref={(el) => (countersRef.current[2] = el)} data-target="3">0</span>
-            </h3>
-            <p>Live Projects</p>
-          </div>
+        <ul>
+          {card.points.map((point, index) => (
+            <li key={index}>{point}</li>
+          ))}
+        </ul>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
-          <div className="stat-item">
-            <h3>
-              <span ref={(el) => (countersRef.current[3] = el)} data-target="3">0</span>
-            </h3>
-            <p>Years</p>
-          </div>
+      <section id="stats" className="stats-container">
+  <motion.div
+    className="stats-box"
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ type: "spring", stiffness: 120 }}
+  >
+    {[
+      { value: "50+", label: "Clients" },
+      { value: "50M+", label: "Views" },
+      { value: "2M+", label: "Followers" },
+      { value: "3000+", label: "Videos" },
+    ].map((stat, i) => (
+      <motion.div
+        className="stat-item"
+        key={i}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: i * 0.2, type: "spring", stiffness: 120 }}
+      >
+        <h2>{stat.value}</h2>
+        <p>{stat.label}</p>
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
 
-        </div>
-      </section>
+      {/* PROJECTS */}
+      <section id="projects" className="projects">
+      <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+        Proof, Not Promises
+      </motion.h2>
+      <motion.p className="abc" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+        Real results from real clients.
+      </motion.p>
 
-      {/* ================= ABOUT SECTION ================= */}
-      <section className="about-section" id="about">
-        <div className="about-container">
-
-          <div className="about-image">
-            <img src={`${process.env.PUBLIC_URL}/abt.png`} alt="Workspace" />
-          </div>
-
-          <div className="about-content">
-            <h2>About Me</h2>
-
-            <p className="about-summary">
-              Entry-level software engineer with a strong grounding in full-stack development, spanning JavaScript, Python, MERN, and Django. Experienced in building academic web solutions, managing databases, and working with cloud fundamentals. Brings a structured problem-solving mindset, high adaptability, and a proactive approach to supporting development initiatives in modern engineering environments.
-            </p>
-
-            <div className="about-tabs">
-              <span
-                className={activeTab === "skills" ? "active" : ""}
-                onClick={() => setActiveTab("skills")}
-              >
-                Skills
-              </span>
-              <span
-                className={activeTab === "education" ? "active" : ""}
-                onClick={() => setActiveTab("education")}
-              >
-                Education
-              </span>
-              <span
-                className={activeTab === "certifications" ? "active" : ""}
-                onClick={() => setActiveTab("certifications")}
-              >
-                Certifications
-              </span>
-              <span
-                className={activeTab === "experience" ? "active" : ""}
-                onClick={() => setActiveTab("experience")}
-              >
-                Experience
-              </span>
+      <div className="project-grid">
+        {caseStudies.map((project) => (
+          <div
+            key={project.id}
+            className={`project-card ${
+              active === project.id ? "active" : ""
+            }`}
+          >
+            {/* HEADER */}
+            <div className="card-header">
+              <img src={project.image} alt="" />
+              <div>
+                <a href={project.link} target="_blank" rel="noreferrer">
+                  {project.name}
+                </a>
+                <p>{project.type}</p>
+              </div>
             </div>
 
-            <div className="about-tab-content">
-              {activeTab === "skills" && (
-                <ul>
-                  <li>JavaScript, Python </li>
-                  <li>React, Node, Mongo DB, Express (MERN STACK)</li>
-                  <li>HTML & CSS</li>
-                  <li>MySQL </li>
-                  <li>Git & Github</li>
-                  <li>Azure , Docker, CI/CD, Kubernetes </li>
-                  <li>AI & ML</li>
-                  <li>Vscode, Pycharm</li>
-                </ul>
-              )}
+            {/* CONTENT */}
+            <div className="card-body">
+              <h4>Objective</h4>
+              <p>{project.objective}</p>
 
-              {activeTab === "education" && (
-                <ul>
-                  <li>Master of Computer Applications(MCA)</li>
-                  <li>Bachelor of Science in Mathematics (B.Sc)</li>
-                  
-                </ul>
-              )}
+              <h4>Execution</h4>
+              <ul>
+                {project.execution.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
 
-              {activeTab === "certifications" && (
-                <ul>
-                  <li>IBM Full-Stack JavaScript Developer Professional Certificate</li>
-                  <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
-                  <li>Python Django Training, Riss Technologies,</li>
-                </ul>
-              )}
-
-              {activeTab === "experience" && (
-                <ul>
-                  <li>Web Developer - Freelancer - Doha, Qatar</li>
-                  <li>Assistant Professor - DCSMAT, Vagamon, Kerala, India</li>
-                  
-                </ul>
-              )}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ================= PROJECTS SECTION ================= */}
-      <section className="projects-section" id="projects">
-      <h2 className="projects-heading">Projects</h2>
-
-      <div className="projects-grid">
-        {projectsData.map((project, index) => (
-          <div className="project-card" key={index}>
-            <img src={project.image} alt={project.title} />
-
-            <div className="project-overlay">
-              <a href={project.github} target="_blank" rel="noreferrer">
-                <i className="fab fa-github"></i>
-              </a>
-              <a href={project.live} target="_blank" rel="noreferrer">
-                <i className="fas fa-eye"></i>
-              </a>
+              <h4>Results</h4>
+              <ul>
+                {project.results.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
             </div>
 
-            <h3 className="project-title">{project.title}</h3>
+            {/* EXPAND BUTTON */}
+            <div
+              className="expand-btn"
+              onClick={() =>
+                setActive(active === project.id ? null : project.id)
+              }
+            >
+              →
+            </div>
           </div>
         ))}
       </div>
     </section>
-      {/* ================= CONTACT SECTION ================= */}
-      {/* ================= CONTACT SECTION ================= */}
-<section className="contact-section" id="contact">
-  <div className="contact-container">
+      <section id="contact"  className="contact-premium">
+      <h2>Let's make your brands stand out</h2>
+      <p>Feel free to reach out for collaborations or just a friendly chat.</p>
 
-    {/* Left side */}
-    <div className="contact-left">
-      <h2>Let's Connect</h2>
-      <p>
-        I am a full-stack developer and ready to take freelance work. Feel free to reach out!
-      </p>
+      <div className="contact-list">
+        <div className="contact-card">
+          <FontAwesomeIcon icon={faPhone} />
+          <span>+91 9074069437</span>
+        </div>
 
-      <div className="contact-info">
-        <p><i className="fas fa-envelope"></i> alnnaofficial25@gmail.com</p>
-        <p><i className="fas fa-map-marker-alt"></i> Doha, Qatar</p>
-        <p><i className="fas fa-phone"></i> +974 3077 3196</p>
+        <a href="https://wa.me/918301946350" target="_blank" rel="noreferrer" className="contact-card">
+          <FontAwesomeIcon icon={faWhatsapp} />
+          <span>WhatsApp</span>
+        </a>
+
+        <div className="contact-card">
+          <FontAwesomeIcon icon={faEnvelope} />
+          <span>danielstephenwork@gmail.com</span>
+        </div>
+
+        <a href="https://www.linkedin.com/in/daniellstephen/" target="_blank" rel="noreferrer" className="contact-card">
+          <FontAwesomeIcon icon={faLinkedin} />
+          <span>LinkedIn</span>
+        </a>
       </div>
 
-      <div className="contact-socials">
-        <a href="https://github.com/AlnnaAntoC" target="_blank" rel="noreferrer">
-          <i className="fab fa-github"></i>
-        </a>
-        <a href="www.linkedin.com/in/alnna-anto-c-645099221" target="_blank" rel="noreferrer">
-          <i className="fab fa-linkedin"></i>
-        </a>
+      {/* Floating WhatsApp */}
+      <a
+        href="https://wa.me/918301946350"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FontAwesomeIcon icon={faWhatsapp} />
+      </a>
+
+      <div className="contact-footer">
+        <p>© 2026 Daniel Stephen. All rights reserved.</p>
       </div>
-    </div>
-
-    {/* Right side — Contact Form */}
-    <div className="contact-right">
-  <div className="contact-form-container">
-    <form
-      onSubmit={(e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const subject = form.subject.value;
-    const message = form.message.value;
-    const whatsappNumber = "97430773196"; // Qatar number without '+'
-
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      `Name: ${name}\nSubject: ${subject}\nMessage: ${message}`
-    )}`;
-
-    window.open(whatsappURL, "_blank");
-  }}
-    >
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="text" name="mail" placeholder="Mail" required />
-      <input type="text" name="subject" placeholder="Subject" required />
-      <textarea name="message" placeholder="Message" rows="5" required></textarea>
-      <button type="submit" className="whatsapp-btn">
-        <i className="fab fa-whatsapp"></i> Send Message
-      </button>
-    </form>
-  </div>
-</div>
-
-
-  </div>
-</section>
-
+    </section>
 
     </div>
   );
