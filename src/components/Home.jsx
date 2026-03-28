@@ -81,16 +81,13 @@ const Home = () => {
     link: "https://www.instagram.com/sunilkumar_assethomes?igsh=NmJ3NWRwZGE0N2Nq",
     image: P3,
     type: "Real Estate Founder",
-    objective: "Build brand awareness and distribution on social media for the food brand.",
+    objective: "Build founder authority and visibility",
     execution: [
-      "Street interview format",
-      "Relatable questions",
-      "Focus on real human experiences",
-      "Emotion-driven storytelling",
+      "Story-driven content based on founder strength",
+      "Conversational format",
+      "Guided freestyle delivery",
+      "Consistent content production",
       
-      
-
-
     ],
     results: [
       "100+ videos",
@@ -104,12 +101,12 @@ const Home = () => {
     link: "https://www.instagram.com/honest.bowl?igsh=dmJkc2JzN2pkeTBm",
     image: P4,
     type: "Food Brand",
-    objective: "Build relatable identity",
+    objective: "Build brand awareness and distribution on social media for the food brand.",
     execution: [
-      "Street interviews",
-      "Emotional storytelling",
-      "Human experiences",
-      "Targeted audience",
+      "Street interview format",
+      "Relatable questions",
+      "Focus on real human experiences",
+      "Emotion-driven storytelling",
     ],
     results: [
       "10+ videos with 1M+ views",
