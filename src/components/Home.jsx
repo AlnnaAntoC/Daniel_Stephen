@@ -62,7 +62,7 @@ const Home = () => {
     image: P2,
     type: "Investment Educator",
     objective:
-      "Build distribution and visibility for investment services brand",
+      "Build a strong personal brand to drive awareness and distribution for investment services and offerings.",
     execution: [
       "High-retention content",
       "Fast-paced storytelling",
@@ -81,12 +81,16 @@ const Home = () => {
     link: "https://www.instagram.com/sunilkumar_assethomes?igsh=NmJ3NWRwZGE0N2Nq",
     image: P3,
     type: "Real Estate Founder",
-    objective: "Build founder authority",
+    objective: "Build brand awareness and distribution on social media for the food brand.",
     execution: [
-      "Story-driven founder content",
-      "Conversational format",
-      "Freestyle delivery",
-      "Consistent production",
+      "Street interview format",
+      "Relatable questions",
+      "Focus on real human experiences",
+      "Emotion-driven storytelling",
+      
+      
+
+
     ],
     results: [
       "100+ videos",
@@ -119,7 +123,7 @@ const Home = () => {
     link: "https://www.instagram.com/praveen.prowin?igsh=MW14a29sbWJhaGY0bA==",
     image: P5,
     type: "Real Estate Brand",
-    objective: "Attract investors & hiring leads",
+    objective: "Build brand awareness and distribution on social media for a real estate company.",
     execution: [
       "High-energy content",
       "Aggressive sales format",
@@ -208,7 +212,7 @@ const [active, setActive] = useState(null);
     whileInView="visible"
     variants={fadeUp}
   >
-    I help Founders and Brands grow attention, authority, and leads using structured short-form content.
+    I help Founders and Brands grab attention and build authority on social media using structured short-form content..
   </motion.p>
 
   <div className="about-grid">
@@ -353,7 +357,7 @@ const [active, setActive] = useState(null);
     </section>
       <section id="contact"  className="contact-premium">
       <h2>Let's make your brands stand out</h2>
-      <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+      <p>Reach out and let’s discuss your brand.</p>
 
       <div className="contact-list">
         <div className="contact-card">

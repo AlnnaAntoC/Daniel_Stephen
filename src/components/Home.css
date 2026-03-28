@@ -495,25 +495,43 @@ section {
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-content {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: left;
+    gap: 0px;
+    margin-top: -200px;         /* Pull content UP into the green */
   }
 
   .hero-bg {
-    height: 220px;
+    height: 140px;              /* Taller so it covers image + name */
+    top: 0px;                  /* Adjust based on your navbar height */
   }
 
-  .profile-img {
-    width: 220px;
-    margin-bottom: 0px;
+   .profile-img {
+    width: 200px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    align-self: flex-end;
+  }
+   .hero-right {
+    flex: 1;
+    padding-bottom: 20px;
   }
 
   .hero-right h1 {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .nav-links {
     display: none;
+  }
+}
+@media (max-width: 900px) {
+  .profile-img {
+    width: 200px;               /* Bigger image */
+    flex-shrink: 0;
+    margin-bottom: 9px;
+    align-self: flex-end;       /* Image bottom aligns with green bg bottom */
   }
 }
 
