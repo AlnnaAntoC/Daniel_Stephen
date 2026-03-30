@@ -494,63 +494,62 @@ section {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+  .hero {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;           /* Prevent right overflow */
+  }
+
   .hero-content {
     flex-direction: row;
     align-items: flex-end;
     text-align: left;
     gap: 0px;
-    margin-top: -200px;         /* Pull content UP into the green */
-  }
-
-  
-
-  .hero {
-    padding-left: 0;            /* Remove left padding */
-  }
-
-  .hero-content {
-    padding-left: 0;            /* Remove left padding */
-    margin-left: 0;
-    gap: 5px;              /* Remove left margin */
+    margin-top: -140px;
+    width: 100%;
   }
 
   .profile-img {
-    margin-left: 0;             /* Remove any left margin on image */
-  }
-
-  .hero-bg {
-    height: 140px;              /* Taller so it covers image + name */
-    top: 0px;                  /* Adjust based on your navbar height */
-  }
-
-   .profile-img {
-    width: 200px;
+    width: 180px;               /* Slightly smaller to give text more room */
     flex-shrink: 0;
     margin-bottom: 0;
+    margin-left: 0;
     align-self: flex-end;
   }
-   .hero-right {
+
+  .hero-right {
     flex: 1;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-right: 10px;        /* Small right padding so text doesn't touch edge */
+    overflow: hidden;
   }
 
   .hero-right h1 {
-    font-size: 28px;
+    font-size: 16px;            /* Smaller to fit fully on screen */
+    line-height: 1.2;
+    margin-bottom: 5px;
+    white-space: normal;
+    word-break: break-word;     /* Prevent text overflow */
+  }
+
+  .hero-right .badge,
+  .hero-right .tag {
+    font-size: 9px;
+    padding: 3px 6px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .hero-right .btn,
+  .hero-right button {
+    font-size: 9px;
+    padding: 5px 8px;
   }
 
   .nav-links {
     display: none;
   }
 }
-@media (max-width: 900px) {
-  .profile-img {
-    width: 200px;               /* Bigger image */
-    flex-shrink: 0;
-    margin-bottom: 9px;
-    align-self: flex-end;       /* Image bottom aligns with green bg bottom */
-  }
-}
-
 @media (max-width: 600px) {
   section {
     padding: 60px 5%;
