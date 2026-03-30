@@ -568,6 +568,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0px;
   
   
 }
@@ -575,6 +576,9 @@ section {
   .nav-links {
     display: none;
   }
+
+
+  
 }
 
 
@@ -582,7 +586,7 @@ section {
 
 @media (max-width: 600px) {
   section {
-    padding: 60px 5%;
+    padding: 20px 5%;
   }
 
   .hero {
