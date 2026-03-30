@@ -493,63 +493,83 @@ section {
 
 
 /* RESPONSIVE */
+
+
 @media (max-width: 900px) {
   .hero {
-    padding-left: 0;
-    padding-right: 0;
-    overflow: hidden;           /* Prevent right overflow */
+    padding: 0;
+    overflow: hidden;
   }
 
   .hero-content {
     flex-direction: row;
     align-items: flex-end;
     text-align: left;
-    gap: 0px;
-    margin-top: -140px;
+    gap: 0;
+    margin-top: 0;
+    position: relative;
     width: 100%;
   }
 
+  .hero-bg {
+    height: 260px;             /* Green covers bottom portion only */
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+  }
+
   .profile-img {
-    width: 180px;               /* Slightly smaller to give text more room */
+    width: 55%;                /* Image takes left half */
     flex-shrink: 0;
-    margin-bottom: 0;
-    margin-left: 0;
+    margin: 0;
     align-self: flex-end;
+    position: relative;
+    z-index: 1;                /* Image sits on top of green */
   }
 
   .hero-right {
+    width: 45%;
     flex: 1;
-    padding-bottom: 10px;
-    padding-right: 10px;        /* Small right padding so text doesn't touch edge */
-    overflow: hidden;
+    padding: 0 10px 20px 10px;
+    position: relative;
+    z-index: 1;
   }
 
   .hero-right h1 {
-    font-size: 16px;            /* Smaller to fit fully on screen */
-    line-height: 1.2;
-    margin-bottom: 5px;
-    white-space: normal;
-    word-break: break-word;     /* Prevent text overflow */
+    font-size: 28px;           /* Large bold name like desktop */
+    line-height: 1.1;
+    margin-bottom: 10px;
+    font-weight: 900;
   }
 
   .hero-right .badge,
   .hero-right .tag {
-    font-size: 9px;
-    padding: 3px 6px;
-    white-space: normal;
-    word-break: break-word;
+    font-size: 10px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    display: inline-block;
   }
 
   .hero-right .btn,
   .hero-right button {
-    font-size: 9px;
-    padding: 5px 8px;
+    font-size: 11px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
   }
 
   .nav-links {
     display: none;
   }
 }
+
+
+
+
 @media (max-width: 600px) {
   section {
     padding: 60px 5%;
