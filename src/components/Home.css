@@ -502,6 +502,22 @@ section {
     margin-top: -200px;         /* Pull content UP into the green */
   }
 
+  
+
+  .hero {
+    padding-left: 0;            /* Remove left padding */
+  }
+
+  .hero-content {
+    padding-left: 0;            /* Remove left padding */
+    margin-left: 0;
+    gap: 5px;              /* Remove left margin */
+  }
+
+  .profile-img {
+    margin-left: 0;             /* Remove any left margin on image */
+  }
+
   .hero-bg {
     height: 140px;              /* Taller so it covers image + name */
     top: 0px;                  /* Adjust based on your navbar height */
