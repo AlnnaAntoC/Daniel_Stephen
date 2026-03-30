@@ -491,47 +491,52 @@ section {
 
 
 
-
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-content {
     flex-direction: row;
     align-items: flex-end;
     text-align: left;
     gap: 0px;
-    margin-top: -200px;         /* Pull content UP into the green */
+    margin-top: -140px;         /* Adjusted to match green height */
   }
 
   .hero-bg {
-    height: 140px;              /* Taller so it covers image + name */
-    top: 0px;                  /* Adjust based on your navbar height */
+    height: 140px;              /* Keep same */
+    top: 0px;
   }
 
-   .profile-img {
-    width: 200px;
+  .profile-img {
+    width: 200px;               /* Keep same */
     flex-shrink: 0;
     margin-bottom: 0;
     align-self: flex-end;
   }
-   .hero-right {
+
+  .hero-right {
     flex: 1;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
 
   .hero-right h1 {
-    font-size: 28px;
+    font-size: 18px;            /* Smaller to fit inside green */
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+
+  .hero-right .badge,
+  .hero-right .tag {
+    font-size: 10px;            /* Shrink the badge text */
+    padding: 4px 8px;
+  }
+
+  .hero-right .btn,
+  .hero-right button {
+    font-size: 10px;            /* Shrink buttons */
+    padding: 5px 10px;
   }
 
   .nav-links {
     display: none;
-  }
-}
-@media (max-width: 900px) {
-  .profile-img {
-    width: 200px;               /* Bigger image */
-    flex-shrink: 0;
-    margin-bottom: 9px;
-    align-self: flex-end;       /* Image bottom aligns with green bg bottom */
   }
 }
 
