@@ -192,7 +192,7 @@ const [active, setActive] = useState(null);
             </button>
           </div>
               <button className="btn-outline" onClick={() => scrollToSection("contact")}>
-                Contact Me
+                Contact Me...
               </button>
             </div>
           </motion.div>
