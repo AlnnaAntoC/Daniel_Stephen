@@ -502,64 +502,61 @@ section {
   }
 
   .hero-content {
-    flex-direction: row;
-    align-items: flex-end;
-    text-align: left;
+    flex-direction: column;     /* Stack vertically */
+    align-items: center;
+    text-align: center;
     gap: 0;
     margin-top: 0;
-    position: relative;
     width: 100%;
   }
 
   .hero-bg {
-    height: 260px;             /* Green covers bottom portion only */
-    top: auto;
-    bottom: 0;
+    height: 320px;              /* Green covers only the image area */
     width: 100%;
     position: absolute;
+    top: 60px;                  /* Below navbar */
     z-index: 0;
   }
 
   .profile-img {
-    width: 55%;                /* Image takes left half */
+    width: 260px;               /* Big image on green */
     flex-shrink: 0;
-    margin: 0;
-    align-self: flex-end;
+    margin: 0 auto;
     position: relative;
-    z-index: 1;                /* Image sits on top of green */
+    z-index: 1;                 /* Sits on top of green */
+    align-self: center;
   }
 
   .hero-right {
-    width: 45%;
-    flex: 1;
-    padding: 0 10px 20px 10px;
+    width: 100%;
+    padding: 20px 20px;
     position: relative;
     z-index: 1;
+    background: #fff;           /* White background below green */
+    text-align: center;
   }
 
   .hero-right h1 {
-    font-size: 28px;           /* Large bold name like desktop */
-    line-height: 1.1;
-    margin-bottom: 10px;
+    font-size: 32px;
     font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 12px;
   }
 
   .hero-right .badge,
   .hero-right .tag {
-    font-size: 10px;
-    padding: 5px 10px;
-    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 6px 14px;
+    margin-bottom: 15px;
     display: inline-block;
   }
 
   .hero-right .btn,
   .hero-right button {
-    font-size: 11px;
-    padding: 8px 12px;
-    margin-top: 8px;
-    display: block;
-    width: 100%;
-    margin-bottom: 5px;
+    font-size: 13px;
+    padding: 10px 20px;
+    margin: 5px;
+    display: inline-block;
   }
 
   .nav-links {
